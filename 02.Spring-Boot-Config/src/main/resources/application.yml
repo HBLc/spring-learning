@@ -1,0 +1,9 @@
+application:
+  name: 小明
+  sex: 男
+  age: 20
+  info: ${application.name}-${application.sex}-${application.age}
+
+spring:
+  profiles:
+    active: dev

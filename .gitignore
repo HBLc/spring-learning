@@ -1,5 +1,44 @@
-*/.settings/
-*/target/
-*/.classpath
-*/.project
+.mymetadata
+.checkstyle
+.class
+.war
+.zip
+.rar
+.settings/*
+/indexes/*
+/src/main/webapp/WEB-INF/classes/*
+/src/main/webapp/userfiles/*
+target/
+node_modules/
 
+### Mac ###
+.DS_Store
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+### Android ###
+.gradle/
+dump.rdb
+
+### VSCode ###
+.vscode
