@@ -2,6 +2,16 @@
 
 在上一个项目《Spring-Boot-Shiro用户认证》中，我们通过继承 AuthorizingRealm 抽象类实现了 `doGetAuthenticationIngo()` 方法完成了用户认证操作。接下来继续实现 `doGetAuthorizationInfo()` 方法完成 Shiro 的权限控制功能。
 
+![](http://image.berlin4h.top/images/2021/03/12/20210312110605.png)
+
+可以看到：应用代码直接交互的对象是Subject，也就是说Shiro的对外API核心就是Subject；其每个API的含义：
+
+**Subject：**主体，代表了当前“用户”，这个用户不一定是一个具体的人，与当前应用交互的任何东西都是Subject，如网络爬虫，机器人等；即一个抽象概念；所有Subject都绑定到SecurityManager，与Subject的所有交互都会委托给SecurityManager；可以把Subject认为是一个门面；SecurityManager才是实际的执行者；
+
+**SecurityManager：**安全管理器；即所有与安全有关的操作都会与SecurityManager交互；且它管理着所有Subject；可以看出它是Shiro的核心，它负责与后边介绍的其他组件进行交互，如果学习过SpringMVC，你可以把它看成DispatcherServlet前端控制器；
+
+**Realm：**域，Shiro从Realm获取安全数据（如用户、角色、权限），就是说SecurityManager要验证用户身份，那么它需要从Realm获取相应的用户进行比较以确定用户身份是否合法；也需要从Realm得到用户相应的角色/权限进行验证用户是否能进行操作；可以把Realm看成DataSource，即安全数据源。
+
 授权也称为访问控制，是管理资源访问的过称。即根据不同的用户判断是否有访问相应资源的权限。在 Shiro 中，权限控制有三个核心的元素：权限、角色和用户。
 
 #### 库模型设计
