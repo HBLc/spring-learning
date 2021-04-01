@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+    <p>你好！[[${user.userName}]]</p>
+    <p shiro:hasRole="admin">你的角色为超级管理员</p>
+    <p shiro:hasRole="test">你的角色为测试账户</p>
+    <div>
+        <a shiro:hasPermission="user:user" th:href="@{/api/v1/user/list}">获取用户信息</a>
+        <a shiro:hasPermission="user:add" th:href="@{/api/v1/user/add}">新增用户</a>
+        <a shiro:hasPermission="user:delete" th:href="@{/api/v1/user/delete}">删除用户</a>
+    </div>
+    <a th:href="@{/logout}">注销</a>
+</body>
+</html>

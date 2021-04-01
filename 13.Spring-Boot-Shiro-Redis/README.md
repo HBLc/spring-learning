@@ -173,6 +173,6 @@ public SecurityManager securityManager() {
 
 查看 Druid 数据源 SQL 监控：
 
-
+![](http://image.berlin4h.top/images/2021/03/12/20210312160118.png)
 
 SQL 只执行了一次，说明缓存成功。
